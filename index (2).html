@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyster Bay Restaurant | Fine Dining with Urban Vibes</title>
+  <meta name="description" content="Oyster Bay Restaurant Nairobi – fine dining experience with urban vibes. Delicious meals, quality drinks, and relaxed ambience.">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* CSS Variables for easy theming */
+    :root {
+      --primary-color: #c9a24d;
+      --primary-dark: #a8842e;
+      --dark-bg: #111111;
+      --light-bg: #f9f9f9;
+      --text-dark: #333333;
+      --text-light: #ffffff;
+      --text-gray: #777777;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Header & Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4') center/cover no-repeat;
+      color: var(--text-light);
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    
+    .hero .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      font-weight: 300;
+      color: var(--primary-color);
+    }
+    
+    .hero .address {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: var(--dark-bg);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      color: var(--text-light);
+      font-weight: 500;
+      transition: var(--transition);
+      padding: 5px 0;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+      font-weight: 600;
+      border-radius: 4px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+    }
+    
+    .btn-large {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 80px 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--dark-bg);
+      position: relative;
+      font-size: 2.2rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-gray);
+    }
+    
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Menu Section */
+    .menu-highlights {
+      background-color: var(--light-bg);
+    }
+    
+    .menu-filter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+      border-color: var(--primary-color);
+    }
+    
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .menu-item {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .menu-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .menu-item-content {
+      padding: 20px;
+    }
+    
+    .menu-item-title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .menu-item-name {
+      font-weight: 600;
+    }
+    
+    .menu-item-price {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    
+    .menu-item-desc {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    
+    /* Order Online Section */
+    .order-platforms {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    .platform {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: var(--shadow);
+      width: 180px;
+      transition: var(--transition);
+    }
+    
+    .platform:hover {
+      transform: translateY(-5px);
+    }
+    
+    .platform i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+    }
+    
+    .platform-name {
+      font-weight: 600;
+    }
+    
+    /* Contact & Location Section */
+    .contact-section {
+      background-color: var(--light-bg);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-bg);
+      font-size: 1.2rem;
+    }
+    
+    .contact-details h4 {
+      margin-bottom: 5px;
+    }
+    
+    .contact-details p {
+      color: var(--text-gray);
+    }
+    
+    .hours {
+      margin-top: 10px;
+      color: var(--text-gray);
+    }
+    
+    .map-container {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: #bbb;
+      padding: 60px 20px 30px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--dark-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        gap: 30px;
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        padding: 80px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 60px 20px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">OYSTER BAY</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#order">Order Online</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>Oyster Bay</h1>
+      <p class="tagline">Fine Dining Experience with Urban Vibes</p>
+      <div class="address">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>📍 Kilungu Road, Nairobi</span>
+      </div>
+      <div class="hero-buttons">
+        <a href="tel:0114048934" class="btn btn-large">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+        <a href="#menu" class="btn btn-large btn-outline">
+          <i class="fas fa-utensils"></i> View Menu
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Oyster Bay</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Oyster Bay is a fine dining restaurant offering delicious meals, quality drinks, and a relaxed urban ambience. A perfect place to unwind after a long week.</p>
+          <p>Our culinary team combines traditional techniques with modern flair to create unforgettable dishes using the freshest local ingredients. Whether you're joining us for a business lunch, romantic dinner, or weekend brunch, we provide an exceptional dining experience.</p>
+          <p>With our elegant yet comfortable atmosphere, attentive service, and carefully curated wine list, Oyster Bay has become a favorite destination for food enthusiasts in Nairobi.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Oyster Bay Restaurant Interior">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-highlights">
+    <div class="container">
+      <h2 class="section-title">Menu Highlights</h2>
+      
+      <div class="menu-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="mains">Mains</button>
+        <button class="filter-btn" data-filter="appetizers">Appetizers</button>
+        <button class="filter-btn" data-filter="drinks">Drinks</button>
+      </div>
+      
+      <div class="menu-grid">
+        <!-- Pork Ribs -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Pork Ribs">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Pork Ribs</span>
+              <span class="menu-item-price">Ksh 2,400</span>
+            </div>
+            <p class="menu-item-desc">Slow-cooked pork ribs with our signature BBQ sauce, served with fries and coleslaw.</p>
+          </div>
+        </div>
+        
+        <!-- Seafood Platter -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1553621042-f6e147245754" alt="Seafood Platter">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Sea Food Platter</span>
+              <span class="menu-item-price">Ksh 3,200</span>
+            </div>
+            <p class="menu-item-desc">A selection of fresh seafood including prawns, calamari, fish fillet, and mussels.</p>
+          </div>
+        </div>
+        
+        <!-- Roasted Chicken -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1598514982845-63b6e2a8a3a1" alt="Roasted Chicken">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Roasted Crispy Chicken Legs</span>
+              <span class="menu-item-price">Ksh 2,250</span>
+            </div>
+            <p class="menu-item-desc">Crispy roasted chicken legs seasoned with herbs and spices, served with mashed potatoes.</p>
+          </div>
+        </div>
+        
+        <!-- Nachos -->
+        <div class="menu-item" data-category="appetizers">
+          <img src="https://images.unsplash.com/photo-1604908554168-6c42f2b1c6cc" alt="Nachos">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Oyster Bay Classic Nachos</span>
+              <span class="menu-item-price">Ksh 1,500</span>
+            </div>
+            <p class="menu-item-desc">Crispy tortilla chips topped with melted cheese, jalapeños, guacamole, and salsa.</p>
+          </div>
+        </div>
+        
+        <!-- Burger -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Burger">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Burger by the Bay</span>
+              <span class="menu-item-price">Ksh 2,200</span>
+            </div>
+            <p class="menu-item-desc">Juicy beef patty with cheese, lettuce, tomato, and our special sauce in a brioche bun.</p>
+          </div>
+        </div>
+        
+        <!-- Fish and Chips -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Fish and Chips">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Beer Butter Fish & Chips</span>
+              <span class="menu-item-price">Ksh 2,000</span>
+            </div>
+            <p class="menu-item-desc">Beer-battered fish fillets served with crispy fries, tartar sauce, and lemon wedges.</p>
+          </div>
+        </div>
+        
+        <!-- Steak -->
+        <div class="menu-item" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1604908177225-dc47b15bbd67" alt="Steak">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Beef Pepper Steak</span>
+              <span class="menu-item-price">Ksh 2,800</span>
+            </div>
+            <p class="menu-item-desc">Premium beef steak with pepper sauce, grilled vegetables, and potato gratin.</p>
+          </div>
+        </div>
+        
+        <!-- Cocktail -->
+        <div class="menu-item" data-category="drinks">
+          <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330" alt="Cocktail">
+          <div class="menu-item-content">
+            <div class="menu-item-title">
+              <span class="menu-item-name">Classic Mojito</span>
+              <span class="menu-item-price">Ksh 850</span>
+            </div>
+            <p class="menu-item-desc">Refreshing mint, lime, sugar, white rum, and soda water cocktail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Online Section -->
+  <section id="order">
+    <div class="container">
+      <h2 class="section-title">Order Online</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--text-gray);">
+        Can't make it to the restaurant? Enjoy our delicious food delivered right to your doorstep through our partner platforms.
+      </p>
+      
+      <div class="order-platforms">
+        <a href="https://www.ubereats.com" target="_blank" class="platform">
+          <i class="fas fa-motorcycle"></i>
+          <span class="platform-name">Uber Eats</span>
+          <small>Delivery in 30-45 min</small>
+        </a>
+        
+        <a href="https://www.glovoapp.com" target="_blank" class="platform">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="platform-name">Glovo</span>
+          <small>Fast delivery</small>
+        </a>
+        
+        <a href="tel:0114048934" class="platform">
+          <i class="fas fa-phone"></i>
+          <span class="platform-name">Call & Collect</span>
+          <small>Pickup in 20 min</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Location & Contact</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Address</h4>
+              <p>Kilungu Road, Nairobi, Kenya</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone Number</h4>
+              <p>0114 048 934</p>
+              <p>For reservations: 0722 123 456</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Opening Hours</h4>
+              <p>Open Daily</p>
+              <p class="hours">Monday - Sunday: 10:00 AM - 11:00 PM</p>
+              <p class="hours">Kitchen closes at 10:30 PM</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>info@oysterbayrestaurant.co.ke</p>
+              <p>reservations@oysterbayrestaurant.co.ke</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.854274646203!2d36.82156621475392!3d-1.264499999064004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1754d5e3c3a7%3A0xb1e4c6d1728499e5!2sKilungu%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1678882345678!5m2!1sen!2ske" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Oyster Bay</h3>
+        <p>Fine dining with urban vibes. Experience exceptional cuisine in the heart of Nairobi.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#order">Order Online</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt"></i> Kilungu Road, Nairobi</li>
+          <li><i class="fas fa-phone"></i> 0114 048 934</li>
+          <li><i class="fas fa-envelope"></i> info@oysterbayrestaurant.co.ke</li>
+          <li><i class="fas fa-clock"></i> Open Daily: 10AM - 11PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2026 Oyster Bay Restaurant. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Menu filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        menuItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
